@@ -1,38 +1,29 @@
-import {authAPI} from "../api/api";
-import {getAuthUserData} from "./auth-reducer";
+import {createSelector} from "reselect";
 
-const INITIALIZED_SUCCESS = 'INITIALIZED_SUCCESS';
-
-
-let initialState = {
-    initialized: false
-
-};
-
-const appReducer = (state = initialState, action) => {
-    switch (action.type) {
-        case INITIALIZED_SUCCESS:
-            return {
-                ...state,
-                initialized: true
-            }
-
-        default:
-            return state;
-    }
+const getUsersSelector = (state) => {
+    return state.usersPage.users
 }
 
-export const initializedSuccess = () => ({type: INITIALIZED_SUCCESS});
+export const getUsers = createSelector (getUsersSelector, (users) => {
+    return users.filter(u => true)
+})
 
-
-export const initializedApp = () => (dispatch) => {
-    let promise = dispatch(getAuthUserData())
-    Promise.all ([promise])
-        .then(() => {
-            dispatch(initializedSuccess())
-        })
-
-    dispatch(initializedSuccess())
+export const getPageSize = (state) => {
+    return state.usersPage.pageSize
 }
 
-export default appReducer;
+export const getTotalUsersCount = (state) => {
+    return state.usersPage.totalUsersCount
+}
+
+export const getCurrentPage = (state) => {
+    return state.usersPage.currentPage
+}
+
+export const getIsFetching = (state) => {
+    return state.usersPage.isFetching
+}
+
+export const getFollowingInProgress = (state) => {
+    return state.usersPage.followingInProgress
+}

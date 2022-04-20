@@ -1,9 +1,20 @@
 .header {
     grid-area: h;
-    background-color: green;
+    background-color: #7aa2de;
 }
 
 .header img {
-    width: 20px;
+    width: 60px;
+}
+
+.header {
+    border: 3px /* width */ solid /* style */ #00ffc4; /* color */
+}
+.loginBlock {
+    float: right;
+}
+
+.loginBlock a {
+    color: white;
 }
 

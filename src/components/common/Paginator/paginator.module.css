@@ -1,0 +1,22 @@
+.userPhoto {
+    width: 100px;
+    height: 100px;
+}
+
+.paginator {
+    margin: 5px;
+}
+
+.pageNumber {
+    display: inline-block;
+    background: #f1e6e6;
+    color: #000;
+    text-align: center;
+    border-radius: 50%;
+    padding: .3em .65em;
+}
+
+.pageNumber.selectedPage {
+    font-weight: bold;
+    border-color: black;
+}
